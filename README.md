@@ -30,11 +30,7 @@ Suricata, LDAP/FreeIPA y contenedores Docker son ampliaciones propuestas, sujeta
 
 Proyecto Optativo de grado superior, ASIX / DAM.
 
-| Integrante | Responsabilidad técnica propuesta |
-| --- | --- |
-| Hugo Poblaciones | Redes, firewall y segmentación |
-| Sergi Blanca | Servicios y automatización con Ansible |
-| Unai Hervella | Seguridad, monitorización y backups |
+
 
 Los roles de coordinación y documentación se acordarán en la reunión de planificación y se documentarán en el repositorio.
 
