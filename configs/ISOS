@@ -4,7 +4,7 @@ Aquí dejamos las ISOs que usamos para crear las máquinas virtuales en VMware: 
 
 No las hemos subido al repositorio porque pesan mucho y GitHub no deja subir archivos de más de 100 MB. Están en esta carpeta de Drive:
 
-[Carpeta con las ISOs] https://drive.google.com/drive/folders/1dNboz5ApbI47xb9IDdNRGNaWqe3fKRZB?usp=sharing
+<a href="https://drive.google.com/drive/folders/1dNboz5ApbI47xb9IDdNRGNaWqe3fKRZB?usp=sharing">Carpeta con las ISOs</a>
 
 Versiones: Ubuntu Server 26.04 LTS y Ubuntu Desktop 26.04 LTS.
 
