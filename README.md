@@ -45,7 +45,7 @@ Ubuntu Server y Ubuntu Client, Apache, Samba, WireGuard, Prometheus, Grafana, Al
 | Sergi Blanca | Servicios y automatización |
 | Unai Hervella | Seguridad y continuidad |
 
-Detalle completo en [docs/roles.md](docs/roles.md).
+Detalle completo en [docs/roles.md](docs/roles).
 
 ## Definición de terminado
 
