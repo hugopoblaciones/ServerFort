@@ -1,0 +1,53 @@
+# ============================================
+# SECRETOS - NUNCA SUBIR A GITHUB
+# Contraseñas y claves privadas. Si se suben, quedan
+# expuestas en el historial aunque luego se borren.
+# ============================================
+
+# Claves privadas (por ejemplo las de WireGuard)
+*.key
+
+# Certificados y claves en formato PEM (HTTPS, SSH)
+*.pem
+
+# Claves SSH privadas (id_rsa, id_rsa.pub...)
+id_rsa*
+
+# Archivos con contraseñas y variables de entorno
+.env
+
+# Cualquier carpeta llamada "secrets" y todo su contenido
+secrets/
+
+# ============================================
+# TEMPORALES DE LATEX
+# Se generan solos al compilar. Solo hacen falta
+# el .tex y el PDF.
+# ============================================
+*.aux
+*.log
+*.out
+*.toc
+*.synctex.gz
+
+# ============================================
+# IMAGENES DE MAQUINAS VIRTUALES
+# Pesan varios GB y GitHub no admite archivos
+# de más de 100 MB.
+# ============================================
+
+# Discos virtuales de VMware
+*.vmdk
+
+# ISOs de sistemas operativos
+*.iso
+
+# Máquinas virtuales exportadas
+*.ova
+
+# ============================================
+# ARCHIVOS BASURA DEL SISTEMA
+# Los crean macOS y Windows al abrir carpetas.
+# ============================================
+.DS_Store
+Thumbs.db
