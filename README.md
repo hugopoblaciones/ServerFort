@@ -7,6 +7,10 @@ Infraestructura Ubuntu Server segura, monitorizada y automatizada para pequeñas
 
 ServerFort es un proyecto académico de administración de sistemas que propone diseñar e implementar una infraestructura empresarial en máquinas virtuales. Combina redes, servicios Linux, seguridad, monitorización, copias de seguridad y automatización.
 
+## Objetivo del repositorio
+
+Guardar y organizar la documentación, las configuraciones y los scripts de ServerFort, y registrar el trabajo del equipo durante el proyecto.
+
 ## Problema y destinatarios
 
 El proyecto aborda los riesgos de mantener servidores sin una configuración de seguridad adecuada, sin copias automáticas o sin supervisión de fallos. Está orientado a pequeñas empresas y departamentos de IT que no disponen de un administrador de sistemas dedicado a tiempo completo.
