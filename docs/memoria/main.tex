@@ -1,0 +1,186 @@
+\documentclass[11pt,a4paper]{report}
+\usepackage[utf8]{inputenc}
+\usepackage[T1]{fontenc}
+\usepackage[spanish]{babel}
+\usepackage[margin=2.5cm]{geometry}
+\usepackage{lmodern}
+\usepackage{microtype}
+\usepackage{tabularx}
+\usepackage{hyperref}
+\hypersetup{hidelinks,pdftitle={ServerFort: Memoria inicial},pdfauthor={Hugo Poblaciones, Sergi Blanca y Unai Hervella}}
+\setlength{\parindent}{0pt}
+\setlength{\parskip}{0.6em}
+\begin{document}
+\begin{titlepage}
+\centering
+{\large Proyecto de Grado Superior ASIX\par}
+\vspace{1cm}
+{\large Memoria inicial (anteproyecto)\par}
+\vspace{2cm}
+{\Huge\bfseries ServerFort\par}
+\vspace{1cm}
+{\Large Infraestructura Ubuntu Server segura, monitorizada y automatizada\par}
+\vspace{0.8cm}
+{\large De servidor Linux a infraestructura empresarial completa\par}
+\vfill
+Hugo Poblaciones\\Sergi Blanca\\Unai Hervella
+\vspace{1cm}
+
+Proyecto Optativo -- ASIX\\Profesor: Jass Riahi
+\vspace{1cm}
+
+19 de octubre de 2026
+\end{titlepage}
+\tableofcontents
+
+\chapter{Introducción}
+
+\section{De qué va el proyecto}
+ ServerFort consiste en montar una infraestructura de empresa pequeña con Ubuntu Server: servidores, red, seguridad y copias de seguridad. La idea es que, una vez montada, se mantenga casi sola y que nadie tenga que estar todo el día pendiente. 
+\section{El problema}
+ Muchas pymes ponen un servidor Linux sin un firewall bien configurado, sin backups automáticos y sin nadie que vigile si algo falla. Como normalmente no tienen un administrador de sistemas a jornada completa, los problemas se detectan tarde. Si entra alguien que no debe o se estropea un disco, ya se ha perdido tiempo o datos. Un fallo así puede parar el negocio varios días, por eso creemos que merece la pena resolverlo. 
+\section{Para quién está pensado}
+ 
+\par\noindent\textbullet\quad  Una pyme o un departamento de IT pequeño que no tiene un administrador de sistemas a tiempo completo. 
+\par\noindent\textbullet\quad  Una organización que necesite red, servicios (web, archivos, DNS...) y acceso remoto seguro sin depender de terceros. 
+\par\noindent\textbullet\quad  Nosotros mismos, ya que nos sirve para poner en práctica lo aprendido en el ciclo. 
+\section{Objetivos}
+ Queremos pasar de un Ubuntu Server sin configurar a una pequeña infraestructura de empresa. Para ello vamos a: 
+\par\noindent\textbullet\quad  Diseñar una red separada por zonas, con DMZ, servidores y acceso remoto. 
+\par\noindent\textbullet\quad  Montar los servicios: DNS, DHCP, Apache, archivos y VPN. 
+\par\noindent\textbullet\quad  Proteger el sistema con firewall, permisos y auditoría (y IDS/IPS si nos da tiempo). 
+\par\noindent\textbullet\quad  Controlar el estado de las máquinas con Prometheus, logs y alertas. 
+\par\noindent\textbullet\quad  Automatizar tareas con Ansible y scripts. 
+\par\noindent\textbullet\quad  Hacer copias de seguridad y probar a restaurarlas, con un plan de recuperación ante desastres. 
+\section{Qué aporta de diferente}
+ No nos queremos quedar solo en instalar un servidor. Vamos a simular ataques y fallos (un escaneo con Nmap, un servicio caído, un disco lleno) para comprobar que la seguridad y las alertas funcionan de verdad. Además, todo se hará con Ansible para poder repetir la instalación desde cero en pocos minutos, y juntamos redes, seguridad, monitorización y recuperación en el mismo proyecto. 
+\section{Estado del proyecto}
+ Esta memoria se ha escrito antes de empezar el proyecto, así que todavía no hay resultados. Aquí explicamos qué queremos hacer, cómo lo vamos a organizar y cómo comprobaremos que funciona. Todo lo que aparece es una previsión y puede cambiar durante el curso. Las decisiones concretas (programas que usaremos, direcciones IP, configuraciones) las iremos tomando en cada sprint. Los resultados, las pruebas y las conclusiones se añadirán en la memoria final.
+
+\chapter{Alcance}
+\begin{tabularx}{\textwidth}{|p{3.2cm}|X|}
+\hline
+\textbf{Parte} & \textbf{Qué incluye} \\ \hline
+Imprescindible (MVP) & Red separada, DNS/DHCP, servidor web, firewall, backups y monitorización básica con Prometheus y Grafana. \\ \hline
+Ampliaciones & Suricata (IDS/IPS), LDAP/FreeIPA y servicios en contenedores Docker. \\ \hline
+Fuera del alcance & Programar aplicaciones propias y montarlo en hardware real. Todo se hace con máquinas virtuales. \\ \hline
+\end{tabularx}
+\section{Máquinas virtuales}
+ Usaremos dos máquinas virtuales: 
+\par\noindent\textbullet\quad  Ubuntu Server, donde están los servicios. 
+\par\noindent\textbullet\quad  Ubuntu Client, desde donde hacemos todas las pruebas contra el servidor y nos conectamos a él de forma remota.
+
+\chapter{Arquitectura}
+La infraestructura se divide en estas partes: 
+\par\noindent\textbullet\quad  Internet : entrada y salida de tráfico. 
+\par\noindent\textbullet\quad  Firewall : NAT, reglas, VPN y separación de redes. 
+\par\noindent\textbullet\quad  DMZ : web y servicios que se publican. 
+\par\noindent\textbullet\quad  LAN / usuarios : acceso a los recursos internos. 
+\par\noindent\textbullet\quad  Servidores : DNS, LDAP, archivos, monitorización y backup. 
+\par\noindent\textbullet\quad  Laboratorio : pruebas de seguridad controladas. El esquema de red se hará en el Sprint 1 y se añadirá a la memoria final.
+
+\chapter{Red (previsión)}
+Vamos a dividir la red en cinco VLAN para separar cada función y que, si pasa algo en una zona, no afecte a todas. 
+
+\begin{tabularx}{\textwidth}{|r|l|X|l|}
+\hline
+\textbf{VLAN} & \textbf{Nombre} & \textbf{Para qué sirve} & \textbf{Red} \\ \hline
+10 & Administración & Gestionar equipos y servidores & Por definir \\ \hline
+20 & Usuarios & Acceso a recursos de la empresa & Por definir \\ \hline
+30 & Servidores & Servicios internos & Por definir \\ \hline
+40 & DMZ & Servicios expuestos & Por definir \\ \hline
+50 & Laboratorio & Pruebas y pentesting & Por definir \\ \hline
+\end{tabularx}
+
+Usaremos IPv4, DHCP, DNS y reglas de firewall entre las zonas. La idea es bloquear todo por defecto y abrir solo lo necesario. Las subredes y las reglas concretas entre VLAN se definirán en el Sprint 1 y el Sprint 3.
+
+\chapter{Servicios}
+
+\par\noindent\textbullet\quad  DNS y DHCP : resolución de nombres y configuración automática de la red. Los programas concretos se elegirán en el Sprint 2. 
+\par\noindent\textbullet\quad  SSH : administración remota con claves. 
+\par\noindent\textbullet\quad  Web : Apache con HTTPS, en la DMZ. El dominio y el certificado se decidirán en el Sprint 2. 
+\par\noindent\textbullet\quad  Archivos : Samba con permisos por usuario y grupo, para que cada usuario solo vea sus cosas. 
+\par\noindent\textbullet\quad  VPN : WireGuard para conectarse desde fuera de forma segura. 
+\section{Configuración}
+ La configuración de cada servicio se documentará durante los Sprints 2 y 3 y se incluirá en la memoria final.
+
+\chapter{Seguridad}
+Medidas que vamos a aplicar: 
+\par\noindent\textbullet\quad  SSH solo con clave y sin acceso directo como root. 
+\par\noindent\textbullet\quad  Instalar solo los servicios necesarios y mantener el sistema actualizado. 
+\par\noindent\textbullet\quad  Usar sudo, grupos y permisos, con política de contraseñas. 
+\par\noindent\textbullet\quad  Firewall con puertos mínimos y reglas por zonas. 
+\par\noindent\textbullet\quad  Suricata para detectar tráfico sospechoso (ampliación). La herramienta de firewall y su configuración se decidirán en el Sprint 3.
+
+\chapter{Monitorización}
+
+\par\noindent\textbullet\quad  Prometheus recoge métricas de los servidores y servicios. 
+\par\noindent\textbullet\quad  Grafana muestra gráficas de CPU, RAM, disco, red y disponibilidad. 
+\par\noindent\textbullet\quad  Alertmanager avisa cuando hay una incidencia. 
+\par\noindent\textbullet\quad  Los logs se centralizan para poder revisarlos. Los paneles y las alertas concretas se definirán en el Sprint 4.
+
+\chapter{Copias de seguridad}
+Seguiremos la regla 3-2-1: tres copias, en dos tipos de soporte y una de ellas fuera. Las copias serán diarias, semanales y mensuales, con un tiempo de retención. Se comprimen, se cifran y se guardan en un sitio distinto al servidor. También se comprobará automáticamente que las copias están bien, y probaremos a borrar datos del laboratorio y recuperarlos. La herramienta, lo que se copia y el tiempo de retención se definirán en el Sprint 5. 
+\section{Plan de recuperación (Disaster Recovery)}
+ El plan de recuperación se redactará en el Sprint 5. Este plan consistirá en un plan por si una de las máquinas virtuales se rompe, recuperarla a través de una copia.
+
+\chapter{Automatización}
+
+\par\noindent\textbullet\quad  Ansible : usuarios, paquetes, SSH, firewall y servicios. 
+\par\noindent\textbullet\quad  Scripts : backups, comprobaciones y mantenimiento. 
+\par\noindent\textbullet\quad  Docker/Podman : para algunos servicios (ampliación). Para montar todo en máquinas nuevas, se ejecutaría el playbook principal: \par\texttt{ansible-playbook -i inventory/hosts.ini site.yml}\par La estructura del repositorio se definirá al empezar el proyecto.
+
+\chapter{Pruebas de seguridad}
+Haremos las pruebas siguiendo este ciclo: ataque o fallo  $\rightarrow$  detección  $\rightarrow$  corrección  $\rightarrow$  validación (comprobar otra vez que está arreglado). 
+\par\noindent\textbullet\quad  Servidor caído. 
+\par\noindent\textbullet\quad  Disco lleno. 
+\par\noindent\textbullet\quad  Servicio parado. 
+\par\noindent\textbullet\quad  Intentos de acceso por SSH. 
+\par\noindent\textbullet\quad  Escaneo de puertos con Nmap. Los resultados de las pruebas se añadirán en la memoria final.
+
+\chapter{Organización}
+
+\section{Reparto de tareas}
+ 
+\par\noindent\textbullet\quad  Hugo Poblaciones : redes, firewall y VLAN. 
+\par\noindent\textbullet\quad  Sergi Blanca : servicios (DNS, web, archivos) y Ansible. 
+\par\noindent\textbullet\quad  Unai Hervella : seguridad, monitorización y backups. Los roles pueden cambiar durante el curso según lo que necesitemos. 
+\section{Sprints}
+\begin{enumerate}
+
+\item Diseño de la red, las VLAN y la arquitectura.
+\item Servicios base: DNS, DHCP, web y archivos.
+\item Firewall, VPN y hardening.
+\item Monitorización, dashboards y alertas.
+\item Backups y pruebas de ataques simulados.
+\item Documentación, pruebas finales y presentación.
+\end{enumerate}
+\chapter{Problemas previstos}
+
+\par\noindent\textbullet\quad  Problemas técnicos : Puede que algún servicio no arranque bien en la VM y nos lleve tiempo arreglarlo. Dejamos margen en cada sprint. 
+\par\noindent\textbullet\quad  Cosas nuevas : Ansible y Suricata no los hemos usado antes. Empezaremos con tutoriales antes de aplicarlos. 
+\par\noindent\textbullet\quad  Falta de tiempo : Si nos retrasamos, lo primero que quitaremos será el laboratorio de pentesting, para no afectar a lo imprescindible. Los problemas reales que aparezcan se recogerán en la memoria final.
+
+\chapter{Entrega y comprobación}
+
+\section{Qué entregamos}
+ Las máquinas virtuales con la red y los servicios, el repositorio (Ansible, scripts, configuraciones y documentación), las pruebas de seguridad, los dashboards y alertas, los backups con su restauración, y esta memoria con la demo. 
+\section{Cómo demostramos que funciona}
+\begin{enumerate}
+
+\item Un usuario se autentica y solo accede a sus recursos.
+\item Los servicios responden y están monitorizados.
+\item El firewall bloquea el tráfico no autorizado.
+\item Los intentos sospechosos generan registros y alertas.
+\item Se hace un backup y se restaura.
+\item Una incidencia simulada se detecta y se documenta.
+\item La configuración se puede repetir con la automatización.
+\end{enumerate}
+Las capturas y evidencias de cada punto se recogerán durante el proyecto y se incluirán en la memoria final.\chapter{Resultados esperados y conclusiones}
+
+\section{Qué esperamos conseguir}
+ Al terminar el proyecto, esperamos tener una infraestructura funcionando que sea segura, esté vigilada, se pueda reconstruir con Ansible y permita recuperar los datos si algo falla. También esperamos aprender a defender, vigilar y recuperar un servidor, que es lo que se le pide a un administrador de sistemas en una empresa real. 
+\section{Conclusiones}
+ Las conclusiones se escribirán al terminar el proyecto, cuando tengamos resultados reales.
+
+\end{document}
