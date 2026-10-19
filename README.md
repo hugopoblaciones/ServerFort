@@ -37,4 +37,14 @@ Integrantes:
 
 Ubuntu Server y Ubuntu Client, Apache, Samba, WireGuard, Prometheus, Grafana, Alertmanager y Ansible. Las herramientas concretas de DNS, DHCP, firewall y copias de seguridad se elegirán y justificarán durante el diseño.
 
+## Equipo y roles
+
+| Persona | Rol |
+|---|---|
+| Hugo Poblaciones | Redes y firewall |
+| Sergi Blanca | Servicios y automatización |
+| Unai Hervella | Seguridad y continuidad |
+
+Detalle completo en [docs/roles.md](docs/roles.md).
+
 
