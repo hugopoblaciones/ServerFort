@@ -1,1 +1,22 @@
+## ISOs de las máquinas virtuales
 
+Aquí dejamos las ISOs que usamos para crear las máquinas virtuales en VMware: Ubuntu Server para el servidor y Ubuntu Desktop para el cliente.
+
+No las hemos subido al repositorio porque pesan mucho y GitHub no deja subir archivos de más de 100 MB. Están en esta carpeta de Drive:
+
+[Carpeta con las ISOs](https://drive.google.com/drive/folders/1dNboz5ApbI47xb9IDdNRGNaWqe3fKRZB?usp=sharing)
+
+Versiones: Ubuntu Server X.X LTS y Ubuntu Desktop X.X LTS.
+
+### Por qué hemos elegido estas versiones
+
+Hemos elegido las últimas versiones LTS (Long Term Support) de Ubuntu. Estas versiones tienen soporte durante 5 años, con actualizaciones de seguridad incluidas.
+
+Las ventajas por las cuales hemos elegido estas versiones son:
+
+- **Seguridad:** recibe parches de seguridad durante 5 años, algo importante en un proyecto centrado en proteger un servidor.
+- **Estabilidad:** las versiones LTS se prueban más y dan menos problemas que las versiones normales, que solo tienen soporte unos meses.
+- **Sin reinstalar:** no tendremos que cambiar de versión durante el proyecto ni después, así que la configuración se mantiene.
+- **Compatibilidad:** Apache, Samba, WireGuard, Prometheus, Grafana y Ansible tienen soporte y documentación para Ubuntu LTS.
+- **Más ayuda:** al ser la versión más usada en servidores, hay muchos tutoriales y respuestas en foros si nos atascamos.
+- **Entorno igual en servidor y cliente:** usar la misma familia en las dos máquinas evita diferencias que compliquen las pruebas.
