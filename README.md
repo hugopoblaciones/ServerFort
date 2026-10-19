@@ -23,24 +23,10 @@ El proyecto aborda los riesgos de mantener servidores sin una configuración de 
 ## Equipo
 
 Proyecto Optativo de grado superior, ASIX / DAM.
-
-
-## Sprint 1: arranque y planificación inicial
-
-Periodo indicado en el enunciado: del 7 al 21 de octubre de 2026.
-
-- [ ] Crear el repositorio y añadir al equipo y al profesorado.
-- [ ] Preparar la estructura de carpetas.
-- [ ] Crear el GitHub Project y los milestones de Sprint 1 y Sprint 2.
-- [ ] Redactar y priorizar un backlog de al menos 15 elementos.
-- [ ] Documentar los roles y la Definition of Done.
-- [ ] Redactar el primer capítulo de la memoria en LaTeX y compilarlo a PDF.
-- [ ] Documentar Planning, seguimiento semanal, Review y Retrospectiva.
-- [ ] Comprobar que todos los integrantes tienen aportaciones propias.
-
-Las casillas se actualizarán según el trabajo realizado y las evidencias disponibles.
-
-
+Integrantes:
+- Hugo Poblaciones
+- Sergi Blanca
+- Unai hervella 
 
 ## Tecnologías propuestas
 
