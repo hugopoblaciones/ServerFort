@@ -1,4 +1,5 @@
-Configuraciones de ServerFort, una por una.
+# Configuraciones de ServerFort  
+
 La presentación solo nombra las piezas, así que te explico qué implica configurar cada una. Todo se monta sobre 
 dos máquinas virtuales: el Ubuntu Server y el Ubuntu Client, desde el que se hacen las pruebas y la conexión remota.
 
