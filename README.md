@@ -47,9 +47,3 @@ Ubuntu Server y Ubuntu Client, Apache, Samba, WireGuard, Prometheus, Grafana, Al
 
 Detalle completo en [docs/roles.md](docs/roles).
 
-## Definición de terminado
-
-Las condiciones para dar una tarea por terminada están en
-[docs/definicion-de-terminado.md](docs/definicion-de-terminado.md).
-
-
