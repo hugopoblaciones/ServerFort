@@ -1,17 +1,5 @@
 # Roles del equipo
 
-| Persona | Rol | Responsabilidades |
-|---|---|---|
-| Hugo Poblaciones | Redes y firewall | Diseño de red, VLANs, segmentación, firewall y VPN |
-| Sergi Blanca | Servicios y automatización | DNS, DHCP, web, archivos y Ansible |
-| Unai Hervella | Seguridad y continuidad | Hardening, Prometheus/Grafana, alertas y backups |
+El reparto de roles está pendiente de acordarse entre los tres integrantes. No hemos podido completarlo porque un compañero no ha asistido a la sesión de cierre del Sprint 1.
 
-## Responsabilidades comunes
-- Mantener sus tareas actualizadas en el tablero Kanban.
-- Revisar el trabajo de otro compañero antes de pasarlo a Hecho.
-- Asistir a las reuniones de seguimiento, Review y Retrospectiva.
-- Documentar todo lo que configuren.
-
-## Ajustes
-Los roles pueden ajustarse durante el curso según las necesidades
-del proyecto. Cualquier cambio se anota en este archivo con su fecha.
+Cuando nos reunamos los tres, actualizaremos este archivo, el README y la issue #18 con el reparto acordado.
