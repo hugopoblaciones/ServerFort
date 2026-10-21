@@ -39,11 +39,7 @@ Ubuntu Server y Ubuntu Client, Apache, Samba, WireGuard, Prometheus, Grafana, Al
 
 ## Equipo y roles
 
-| Persona | Rol |
-|---|---|
-| Hugo Poblaciones | Redes y firewall |
-| Sergi Blanca | Servicios y automatización |
-| Unai Hervella | Seguridad y continuidad |
+El reparto de roles está pendiente de acordarse entre los tres integrantes, porque uno de los compañeros no ha podido asistir a la sesión de cierre del Sprint 1. Cuando nos reunamos los tres, actualizaremos la issue #18, el README y docs/roles con el reparto acordado.
 
-Detalle completo en [docs/roles.md](docs/roles).
+
 
