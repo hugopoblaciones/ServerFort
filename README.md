@@ -37,9 +37,15 @@ Integrantes:
 
 Ubuntu Server y Ubuntu Client, Apache, Samba, WireGuard, Prometheus, Grafana, Alertmanager y Ansible. Las herramientas concretas de DNS, DHCP, firewall y copias de seguridad se elegirán y justificarán durante el diseño.
 
-## Equipo y roles
+## Roles
 
-El reparto de roles está pendiente de acordarse entre los tres integrantes, porque uno de los compañeros no ha podido asistir a la sesión de cierre del Sprint 1. Cuando nos reunamos los tres, actualizaremos la issue #18, el README y docs/roles con el reparto acordado.
+- Hugo Poblaciones: redes, firewall y segmentación en VLANs.
+- Sergi Blanca: servicios (DNS, web, archivos) y automatización con Ansible.
+- Unai Hervella: seguridad, monitorización (Prometheus/Grafana) y backups.
+
+Los roles pueden ajustarse durante el curso segun las necesidades.
+
+
 
 
 
