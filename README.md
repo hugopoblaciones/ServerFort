@@ -43,8 +43,7 @@ Ubuntu Server y Ubuntu Client, Apache, Samba, WireGuard, Prometheus, Grafana, Al
 - Sergi Blanca: servicios (DNS, web, archivos) y automatización con Ansible.
 - Unai Hervella: seguridad, monitorización (Prometheus/Grafana) y backups.
 
-Los roles pueden ajustarse durante el curso segun las necesidades.
-
+Los roles pueden ajustarse durante el curso segun las necesidades.Toda la información extendida esta a traves de Documentos/Roles
 
 
 
