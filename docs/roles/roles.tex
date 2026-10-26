@@ -1,0 +1,60 @@
+\documentclass[12pt,a4paper]{article}
+
+\usepackage[utf8]{inputenc}
+\usepackage[T1]{fontenc}
+\usepackage[spanish]{babel}
+\usepackage[margin=2.5cm]{geometry}
+\usepackage{booktabs}
+\usepackage{tabularx}
+\usepackage{enumitem}
+\usepackage[hidelinks]{hyperref}
+
+\setlist{itemsep=2pt,topsep=4pt}
+
+\title{ServerFort\\[0.2cm]\large Roles del equipo}
+\author{Hugo Poblaciones \and Sergi Blanca \and Unai Hervella}
+\date{Proyecto de Grado Superior ASIX}
+
+\begin{document}
+\maketitle
+
+\section{Roles del equipo}
+Cada uno de nosotros tiene un rol de organización que cambia en cada sprint, para que los tres pasemos por todos. Además, cada uno mantiene durante todo el proyecto su parte técnica.
+
+\section{Descripción de los roles}
+\begin{itemize}
+  \item \textbf{Coordinador / Scrum Master}: organiza el sprint, convoca las reuniones de planificación, seguimiento y cierre, revisa que el tablero esté al día y avisa si hay retrasos.
+  \item \textbf{Responsable técnico}: decide cómo se hace cada tarea técnica del sprint, resuelve dudas y comprueba que lo que se monta funciona.
+  \item \textbf{Responsable de documentación}: va escribiendo la memoria durante el sprint, guarda las capturas y los comandos y mantiene el README y el repositorio ordenados.
+\end{itemize}
+
+\section{Rotación por sprints}
+\begin{table}[h]
+\centering
+\caption{Roles de equipo en cada sprint}
+\begin{tabularx}{\textwidth}{@{}lXXX@{}}
+\toprule
+\textbf{Sprint} & \textbf{Coordinador} & \textbf{Resp. técnico} & \textbf{Resp. documentación} \\
+\midrule
+1 & Hugo & Sergi & Unai \\
+2 & Sergi & Unai & Hugo \\
+3 & Unai & Hugo & Sergi \\
+4 & Hugo & Sergi & Unai \\
+5 & Sergi & Unai & Hugo \\
+Final & Unai & Hugo & Sergi \\
+\bottomrule
+\end{tabularx}
+\end{table}
+
+\section{Parte técnica de cada uno}
+Estas responsabilidades se mantienen durante todo el proyecto:
+\begin{itemize}
+  \item \textbf{Hugo Poblaciones}: redes, firewall y segmentación en VLAN.
+  \item \textbf{Sergi Blanca}: servicios (DNS, web, archivos) y automatización con Ansible.
+  \item \textbf{Unai Hervella}: seguridad, monitorización (Prometheus/Grafana) y copias de seguridad.
+\end{itemize}
+
+\section{Cambios de roles}
+Los roles pueden ajustarse durante el curso según las necesidades. Cada cambio se anotará en el Issue de planificación del sprint correspondiente.
+
+\end{document}
